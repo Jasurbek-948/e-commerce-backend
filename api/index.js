@@ -18,7 +18,9 @@ const server = http.createServer(app);
 const allowedOrigins = process.env.ALLOWED_ORIGINS?.split(',') || ['http://localhost:3000', 'http://localhost:3001'];
 
 // Socket.IO Authentication Middleware
-
+app.get('/', (req, res) => {
+    res.send('Salom Dunyo');
+});
 app.use(cors({
     origin: allowedOrigins,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
