@@ -1,15 +1,15 @@
 const express = require('express');
 const cors = require('cors');
-const mongoose = require('./config/db');
+const mongoose = require('../config/db');
 const path = require('path');
 const http = require('http');
 require('dotenv').config({ path: path.resolve(__dirname, '.env') });
 
-const productRoutes = require('./routes/ProductRoutes');
-const reviewRoutes = require('./routes/reviewRoutes');
-const cartRoutes = require('./routes/cartRoutes');
-const authRoutes = require('./routes/authRoutes');
-const bannerRoutes = require('./routes/bannerRoutes');
+const productRoutes = require('../routes/ProductRoutes');
+const reviewRoutes = require('../routes/reviewRoutes');
+const cartRoutes = require('../routes/cartRoutes');
+const authRoutes = require('../routes/authRoutes');
+const bannerRoutes = require('../routes/bannerRoutes');
 
 
 const app = express();
@@ -35,7 +35,7 @@ app.use('/api/products', productRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/banners', bannerRoutes);
 app.use('/api/cart', cartRoutes);
-app.use("/api/orders", require("./routes/orderRoutes"));
+app.use("/api/orders", require("../routes/orderRoutes"));
 
 
 app.use((req, res) => res.status(404).json({ message: 'Route not found' }));
